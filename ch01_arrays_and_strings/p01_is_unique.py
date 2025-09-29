@@ -1,8 +1,7 @@
-def is_unique_brute_force(characters: str) -> bool:
-    for i in range(len(characters)):
-        for j in range(i+1,len(characters)):
-            if characters[i] == characters[j]:
-                print(characters[i],characters[j])
+def is_unique_brute_force(string: str) -> bool:
+    for i in range(len(string)):
+        for j in range(i+1,len(string)):
+            if string[i] == string[j]:
                 return False
     return True
 
@@ -28,4 +27,12 @@ def is_unique_bit_vector(string: str) -> bool:
         if (bit_vector & mask) != 0: # With &-Operator check if the masked position is already set to one in the bit_vector
             return False
         bit_vector |= mask # Set the masked position inside the bit_vector to one
+    return True
+
+def is_unique_sort_and_compare(string: str) -> bool:
+    # Sort string and compare each neighbour with each other
+    string = sorted(string)
+    for i in range(len(string)-1):
+        if string[i] == string [i+1]:
+            return False
     return True

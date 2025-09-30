@@ -11,6 +11,10 @@ def check_permutation_sort(string_one: str, string_two: str) -> bool:
     return True
 
 def check_permutation_unicode_count(string_one: str, string_two: str) -> bool:
+    # Case: Permutations have the same length, only the order can be different of the characters are different
+    if len(string_one) != len(string_two):
+        return False
+    
     unicode_count_one = 0
     unicode_count_two = 0
 

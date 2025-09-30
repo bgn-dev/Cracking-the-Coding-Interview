@@ -9,3 +9,17 @@ def check_permutation_sort(string_one: str, string_two: str) -> bool:
         return False
     
     return True
+
+def check_permutation_unicode_count(string_one: str, string_two: str) -> bool:
+    unicode_count_one = 0
+    unicode_count_two = 0
+
+    for c in string_one:
+        unicode_count_one += ord(c)
+    
+    for c in string_two:
+        unicode_count_two += ord(c)
+
+    if unicode_count_one != unicode_count_two:
+        return False
+    return True

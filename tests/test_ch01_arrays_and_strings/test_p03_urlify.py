@@ -1,7 +1,7 @@
 import unittest
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from ch01_arrays_and_strings.p03_urlify import urlify_brute_force
 
 

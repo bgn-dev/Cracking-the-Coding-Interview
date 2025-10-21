@@ -1,7 +1,7 @@
 import unittest
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from ch01_arrays_and_strings.p01_is_unique import is_unique_brute_force, is_unique_hash_table, is_unique_bit_vector, is_unique_sort_and_compare
 
 

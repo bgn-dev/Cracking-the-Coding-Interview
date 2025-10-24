@@ -24,7 +24,10 @@ def delete(head: Node, data) -> Node:
 # Print the linked list in it's row
 def traverse_linked_list(head: Node):
     while head != None:
-        print(head.data)
+        if head.next == None:
+            print(head.data)
+        else:
+            print(head.data, end='->')
         head = head.next
         
 

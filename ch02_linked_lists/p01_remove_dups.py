@@ -33,7 +33,22 @@ def remove_dups_hash_table(head: Node) -> Node:
         if not dup:
             tables[key].append(n.next.data)
             n = n.next
-    
+    return head
+
+def remove_dups_two_pointer(head: Node) -> Node:
+    n = head
+
+    while n != None:
+        runner = n
+        while runner.next != None:
+            # Remove duplicate within the linked list
+            if n.data == runner.next.data:
+                runner.next = runner.next.next
+            # If not a duplicate, move on with the runner
+            else:
+                runner = runner.next
+        n = n.next
+    return head
     
 
 if __name__ == '__main__':
@@ -54,5 +69,5 @@ if __name__ == '__main__':
     print("Linked list: ", end='')
     traverse_linked_list(head)
     print("Removed duplciates: ", end='')
-    remove_dups_hash_table(head)
+    remove_dups_two_pointer(head)
     traverse_linked_list(head)

@@ -3,7 +3,7 @@ try:
 except ImportError:
     from linked_list import Node, insert, traverse_linked_list
 
-def kth_to_last(head: Node,kth_index) -> int:
+def kth_to_last_two_pass(head: Node, kth_index) -> int:
     n_runner = head
     n = head
     linked_list_length = 0
@@ -23,6 +23,23 @@ def kth_to_last(head: Node,kth_index) -> int:
 
     return n.data
 
+def kth_to_last_two_pointer(head: Node, kth_index) -> int:
+    """
+    This method does not account for kth_index's which are less than 1 or greater than the size of the linked list 
+    """
+    n = head
+    runner = head
+
+    while runner.next != None:
+        # Once the runner reached the kth element, move the second pointer, which points at the head at first if execution
+        if kth_index <= 1:
+            n = n.next
+        runner = runner.next
+        kth_index -= 1
+    
+    return n.data
+        
+
 if __name__ == '__main__':
     head = Node(8)
     insert(head,10)
@@ -30,6 +47,6 @@ if __name__ == '__main__':
     insert(head,4)
     insert(head,5)
 
-    kth_index = 5
-    result = kth_to_last(head,kth_index)
+    kth_index = 6
+    result = kth_to_last_two_pointer(head,kth_index)
     print(result)    

@@ -21,6 +21,15 @@ def delete(head: Node, data) -> Node:
             return head
         n = n.next
 
+# Find specific node within the linked list
+def find_node(head: Node, data) -> Node:
+    n = head
+    while n != None:
+        if n.data == data:
+            return n
+        n = n.next
+    return None
+
 # Print the linked list in it's row
 def traverse_linked_list(head: Node):
     while head != None:

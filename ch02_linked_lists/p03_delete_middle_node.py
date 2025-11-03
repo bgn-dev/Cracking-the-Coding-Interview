@@ -16,9 +16,22 @@ def delete_middle_node(node: Node):
             break
         node = node.next
 
+def delete_middle_node_two_step(node: Node):
+    """
+    First step: Copy the content of successor node to current node
+    Second step: Set the pointer of current node to the successor of node.next
+    """
+    if node.next != None:
+        node.data = node.next.data
+        node.next = node.next.next
+
 if __name__ == '__main__':
     head = Node(1)
+    insert(head, 2)
+    insert(head, 3)
+    insert(head, 4)
+    insert(head, 5)
     insert(head, 6)
-    node = find_node(head, 1)
-    delete_middle_node(node)
+    node = find_node(head, 5)
+    delete_middle_node_two_step(node)
     traverse_linked_list(head)

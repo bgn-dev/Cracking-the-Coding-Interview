@@ -1,7 +1,7 @@
 try:
-    from ch02_linked_lists.linked_list import Node, insert, traverse_linked_list
+    from ch02_linked_lists.linked_list import Node
 except ImportError:
-    from linked_list import Node, insert, traverse_linked_list
+    from linked_list import Node
 
 def hash_function(data: int, table_size) -> int:
     return data % table_size
@@ -53,21 +53,21 @@ def remove_dups_two_pointer(head: Node) -> Node:
 
 if __name__ == '__main__':
     head = Node(10)
-    insert(head,10)
-    insert(head,1)
-    insert(head,1)
-    insert(head,5)
-    insert(head,5)
-    insert(head,2)
-    insert(head,2)
-    insert(head,1)
-    insert(head,5)
-    insert(head,2)
-    insert(head,2)
+    head.insert(10)
+    head.insert(1)
+    head.insert(1)
+    head.insert(5)
+    head.insert(5)
+    head.insert(2)
+    head.insert(2)
+    head.insert(1)
+    head.insert(5)
+    head.insert(2)
+    head.insert(2)
 
 
     print("Linked list: ", end='')
-    traverse_linked_list(head)
+    head.traverse_linked_list()
     print("Removed duplciates: ", end='')
     remove_dups_two_pointer(head)
-    traverse_linked_list(head)
+    head.traverse_linked_list()

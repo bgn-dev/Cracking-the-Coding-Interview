@@ -1,7 +1,7 @@
 try:
-    from ch02_linked_lists.linked_list import Node, insert, traverse_linked_list
+    from ch02_linked_lists.linked_list import Node
 except ImportError:
-    from linked_list import Node, insert, traverse_linked_list
+    from linked_list import Node
 
 def kth_to_last_two_pass(head: Node, kth_index) -> int:
     n_runner = head
@@ -42,10 +42,10 @@ def kth_to_last_two_pointer(head: Node, kth_index) -> int:
 
 if __name__ == '__main__':
     head = Node(8)
-    insert(head,10)
-    insert(head,3)
-    insert(head,4)
-    insert(head,5)
+    head.insert(10)
+    head.insert(3)
+    head.insert(4)
+    head.insert(5)
 
     kth_index = 6
     result = kth_to_last_two_pointer(head,kth_index)

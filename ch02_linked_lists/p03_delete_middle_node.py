@@ -1,7 +1,7 @@
 try:
-    from ch02_linked_lists.linked_list import Node, insert, traverse_linked_list, find_node
+    from ch02_linked_lists.linked_list import Node
 except ImportError:
-    from linked_list import Node, insert, traverse_linked_list, find_node
+    from linked_list import Node
 
 def delete_middle_node(node: Node):
     """
@@ -27,11 +27,11 @@ def delete_middle_node_two_step(node: Node):
 
 if __name__ == '__main__':
     head = Node(1)
-    insert(head, 2)
-    insert(head, 3)
-    insert(head, 4)
-    insert(head, 5)
-    insert(head, 6)
-    node = find_node(head, 5)
+    head.insert(2)
+    head.insert(3)
+    head.insert(4)
+    head.insert(5)
+    head.insert(6)
+    node = head.find_node(5)
     delete_middle_node_two_step(node)
-    traverse_linked_list(head)
+    head.traverse_linked_list()

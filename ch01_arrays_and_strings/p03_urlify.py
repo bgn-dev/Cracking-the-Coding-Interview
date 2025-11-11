@@ -1,4 +1,8 @@
 def urlify_brute_force(string: str, length: int) -> str:
+    """
+    Create a URLify by manipulating the string directly.
+    Account for the new index at each step.
+    """
     indexer = 0
     for i in range(length):
         if string[i+indexer] == ' ':

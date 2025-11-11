@@ -23,7 +23,8 @@ class StackFixedSize:
             self.stack_current_size[stack_id - 1] -= 1  # Decrease available space
             return True
         else:
-            return False
+            self.resize()
+            return self.push(stack_id, item)
 
     def pop(self, stack_id):
         """
@@ -66,13 +67,50 @@ class StackFixedSize:
         else:
             return False
 
+    def resize(self):
+        """
+        Resize all stacks by doublin capacity.
+        Time: O(n), Space: O(n)
+        """
+        start_stack_one = 0
+        start_stack_two = 1 * self.stack_size
+        start_stack_three = 2 * self.stack_size
+        self.stack_size *= 2
+        start_stack_one_new = 0
+        start_stack_two_new = 1 * self.stack_size
+        start_stack_three_new = 2 * self.stack_size
+        stack_array_length = len(self.stack_array)
+
+        for i in range(self.stack_amount):
+            self.stack_current_size[i] +=  self.stack_size // 2
+
+        temp = [None] * self.stack_size * self.stack_amount
+        temp[start_stack_one_new:start_stack_one_new + self.stack_size // 2] = self.stack_array[start_stack_one:start_stack_two]
+        temp[start_stack_two_new:start_stack_two_new + self.stack_size // 2] = self.stack_array[start_stack_two:start_stack_three]
+        temp[start_stack_three_new:start_stack_three_new + self.stack_size // 2] = self.stack_array[start_stack_three:stack_array_length]
+
+        self.stack_array = temp
+        
+        
 
 
 if __name__ == '__main__':
     # Stack ID has to be consecutive starting from 1 to stack_amount
     stack_id = 1
-    stack_amount = 1
-    stack_size = 1
+    stack_amount = 3
+    stack_size = 3
     stack = StackFixedSize(stack_size, stack_amount)
     stack.push(1, 1)
-    print(stack.pop(1))
+    stack.push(1, 1)
+    stack.push(1, 1)
+    stack.push(2, 2)
+    stack.push(2, 2)
+    stack.push(2, 2)
+    stack.push(3, 3)
+    stack.push(3, 3)
+    stack.push(3, 3)
+    print(stack.stack_array)
+    stack.push(1, 1)
+    stack.push(1, 1)
+    stack.push(1, 1)
+    print(stack.stack_array)

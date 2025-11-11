@@ -1,7 +1,7 @@
 def is_unique_brute_force(string: str) -> bool:
     """
     Checks whether or not a string is unique using a brute force method.
-    Returns True or False, accordingly.
+    Time: O(n²), Space: O(1)
     """
     for i in range(len(string)):
         for j in range(i+1,len(string)):
@@ -18,8 +18,7 @@ def hash_function(character: str, table_size: int) -> int:
 def is_unique_hash_table(string: str) -> bool:
     """
     Checks whether or not a string is unique using a hash table.
-    Disclaimer: Not (significantly) faster than the brute force method.
-    Returns True or False, accordingly.
+    Time: O(n), Space: O(n)
     """
     table_size = 100
     tables = [[] for _ in range(table_size)]
@@ -34,8 +33,7 @@ def is_unique_hash_table(string: str) -> bool:
 def is_unique_bit_vector(string: str) -> bool:
     """
     Checks whether or not a string is unique using a bit vector.
-    Unicode of character used for position shift of the mask which is compared to the bit_vector.
-    Returns True or False, accordingly.
+    Time: O(n), Space: O(1)
     """
     bit_vector = 0 # 000...0
     for character in string:
@@ -49,6 +47,7 @@ def is_unique_bit_vector(string: str) -> bool:
 def is_unique_sort_and_compare(string: str) -> bool:
     """
     Checks whether or not a string is unique sorting a string and comparing each neighboring character.
+    Time: O(n log n), Space: O(1)
     """
     string = sorted(string)
     for i in range(len(string)-1):

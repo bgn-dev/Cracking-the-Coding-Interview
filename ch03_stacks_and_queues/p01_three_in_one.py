@@ -12,6 +12,7 @@ class StackFixedSize:
     def push(self, stack_id, item):
         """
         Push an item onto the specified stack.
+        Time: O(1), Space: O(1)
         Returns True if successful, False if stack is full.
         """
         current_size = self.stack_current_size[stack_id - 1]
@@ -27,6 +28,7 @@ class StackFixedSize:
     def pop(self, stack_id):
         """
         Pop the top item from the specified stack.
+        Time: O(1), Space: O(1)
         Returns the item, or None if stack is empty.
         """
         current_size = self.stack_current_size[stack_id - 1]
@@ -43,6 +45,7 @@ class StackFixedSize:
     def peek(self, stack_id):
         """
         Return the top item of the specified stack without removing it.
+        Time: O(1), Space: O(1)
         Returns None if stack is empty.
         """
         if not self.isEmpty(stack_id):
@@ -55,6 +58,7 @@ class StackFixedSize:
     def isEmpty(self, stack_id):
         """
         Check if the specified stack is empty.
+        Time: O(1), Space: O(1)
         Returns True if empty, False otherwise.
         """
         if self.stack_current_size[stack_id - 1] == self.stack_size:

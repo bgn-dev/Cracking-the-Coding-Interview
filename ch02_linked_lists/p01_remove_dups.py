@@ -4,12 +4,18 @@ except ImportError:
     from linked_list import Node
 
 def hash_function(data: int, table_size) -> int:
+    """Simple modulo hash function"""
     return data % table_size
 
 def hash_table(table_size) -> list:
+    """Create a hash table with specified size"""
     return [[] for _ in range(table_size)]
 
 def remove_dups_hash_table(head: Node) -> Node:
+    """
+    Remove duplicates from linked list using hash table. 
+    Time: O(n), Space: O(n)
+    """
     table_size = 100
     tables = hash_table(table_size)
     n = head
@@ -36,6 +42,10 @@ def remove_dups_hash_table(head: Node) -> Node:
     return head
 
 def remove_dups_two_pointer(head: Node) -> Node:
+    """
+    Remove duplicates from linked list using two pointers. 
+    Time: O(n²), Space: O(1)
+    """
     n = head
 
     while n != None:

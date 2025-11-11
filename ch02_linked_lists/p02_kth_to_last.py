@@ -4,6 +4,10 @@ except ImportError:
     from linked_list import Node
 
 def kth_to_last_two_pass(head: Node, kth_index) -> int:
+    """
+    Find kth to last element using two passes. 
+    Time: O(n), Space: O(1)
+    """
     n_runner = head
     n = head
     linked_list_length = 0
@@ -25,7 +29,9 @@ def kth_to_last_two_pass(head: Node, kth_index) -> int:
 
 def kth_to_last_two_pointer(head: Node, kth_index) -> int:
     """
-    This method does not account for kth_index's which are less than 1 or greater than the size of the linked list 
+    Find kth to last element using two pointers (runner technique). 
+    Time: O(n), Space: O(1)
+    Note: Does not validate kth_index bounds
     """
     n = head
     runner = head

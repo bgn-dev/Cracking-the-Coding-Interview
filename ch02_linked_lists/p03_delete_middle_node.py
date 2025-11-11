@@ -5,8 +5,8 @@ except ImportError:
 
 def delete_middle_node(node: Node):
     """
-    Walk trough the remaining list starting from node and replace its successor data with the current node data
-    Disclaimer: The algorithm does expect the input node not to be first or last within the linked list
+    Delete node by shifting all subsequent data left. Time: O(n), Space: O(1)
+    Note: Assumes node is not first or last in the list
     """
     while node.next != None:
         node.data = node.next.data
@@ -18,8 +18,8 @@ def delete_middle_node(node: Node):
 
 def delete_middle_node_two_step(node: Node):
     """
-    First step: Copy the content of successor node to current node
-    Second step: Set the pointer of current node to the successor of node.next
+    Delete node by copying next node's data and removing next node. Time: O(1), Space: O(1)
+    Note: Assumes node is not first or last in the list
     """
     if node.next != None:
         node.data = node.next.data

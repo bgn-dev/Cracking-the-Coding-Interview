@@ -1,28 +1,31 @@
 class Node:
+    """Node in a singly linked list"""
     def __init__(self, data):
         self.data = data
         self.next = None
 
-    # Insert a new node at the end of the linked list
     def insert(self, data):
-        while self.next != None:
-            self = self.next
-        self.next = Node(data)
-
-    # Delete first node found with the same data
-    def delete(self, data):
+        """Insert a new node at the end of the linked list"""
         n = self
-        if n.data == data:
-            return(self.next)
-        
+        while n.next != None:
+            n = n.next
+        n.next = Node(data)
+
+    def delete(self, data):
+        """Delete first node with matching data. Returns new head."""
+        if self.data == data:
+            return self.next
+
+        n = self
         while n.next != None:
             if n.next.data == data:
                 n.next = n.next.next
                 return self
             n = n.next
+        return self
 
-    # Find specific node within the linked list
     def find_node(self, data):
+        """Find and return first node with matching data, or None if not found"""
         n = self
         while n != None:
             if n.data == data:
@@ -30,14 +33,15 @@ class Node:
             n = n.next
         return None
 
-    # Print the linked list in it's row
     def traverse_linked_list(self):
-        while self != None:
-            if self.next == None:
-                print(self.data)
+        """Print the linked list in format: data1->data2->data3"""
+        n = self
+        while n != None:
+            if n.next == None:
+                print(n.data)
             else:
-                print(self.data, end='->')
-            self = self.next
+                print(n.data, end='->')
+            n = n.next
         
 
 if __name__ == '__main__':

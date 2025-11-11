@@ -1,4 +1,7 @@
 def check_permutation_sort(string_one: str, string_two: str) -> bool:
+    """
+    Check if a string is a permutation of another string using a sorting strategy.
+    """
     # Case: Permutations have the same length, only the order can be different of the characters are different
     if len(string_one) != len(string_two):
         return False
@@ -11,6 +14,9 @@ def check_permutation_sort(string_one: str, string_two: str) -> bool:
     return True
 
 def check_permutation_unicode_count(string_one: str, string_two: str) -> bool:
+    """
+    Check if a string is a permutation of another string by summing the Unicode values for each character
+    """
     # Case: Permutations have the same length, only the order can be different of the characters are different
     if len(string_one) != len(string_two):
         return False
